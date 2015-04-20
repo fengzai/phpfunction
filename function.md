@@ -5,8 +5,11 @@
 ```
 
 [数字转为中文大写](#zhuangdaxie)
-
-
+[导出execl表格](#execl)
+[获取本月月份 第一天和最后一天](#fristdayendday)
+[将json串解析成中文](#json-china)
+[php数组根据某键值，把相同键值的合并最终生成一个新的二维数组](#newarray)
+[利用PHP 把某个数值随机分配成几份](#numincise)
 
 <h4 id="zhuangdaxie">数字转为中文大写</h4>
 ```
@@ -63,4 +66,76 @@ public function get_amount($num){
             return $c;
         }
     }
+```
+
+
+<h4 id="execl">导出execl表格</h4>
+```
+$filename = '文档名称'. ' .csv/.xls';
+ header("Cache-Control: public" );
+ header("Pragma: public" );
+ header("Content-type:application/vnd.ms-excel");
+ header("Content-Disposition:attachment;filename={$filename}");
+ header('Content-Type:APPLICATION/OCTET-STREAM');
+
+/*添加csv表格标题*/
+$titleList = array('表格标题1', '表格标题2', '表格标题3', '表格标题4', '表格标题5', '表格标题6');
+$titleString = implode(',', $titleList) . "\r\n";     /*(\r\n) 表示换行*/
+echo mb_convert_encoding($titleString, 'gbk', 'utf-8');    /*以utf-8的格式输出*/
+
+foreach(){
+    $dataList = array();    /*定义新数组*/
+    $dataList[] = '数据'；
+    $dataList[] = '数据'； 
+    $dataList[] = '数据'； 
+    $dataList[] = '数据'； 
+    $dataList[] = '数据'； 
+    $dataList[] = '数据'； 
+
+    $activityString = implode(',', $dataList) . "\r\n";
+    echo mb_convert_encoding($activityString, 'gbk', 'utf-8'); /*输出每一行数据*/
+}
+```
+
+
+<h4 id="fristdayendday">获取本月月份第一天和最后一天</h4>
+```
+$date = date('Y-m-d');
+$firstday = date('Y-m-01', strtotime($date));
+$lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
+```
+
+
+
+<h4 id="json-china">将json串解析成中文</h4>
+```
+$str = preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", $str); 
+
+实例：
+$str = preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", '\u4ea4\u6613\u5bc6\u7801\u9519\u8bef');
+```
+
+
+
+<h4 id="newarray">php数组根据某键值，把相同键值的合并最终生成一个新的二维数组</h4>
+```
+foreach($sourceArray as $k=>$v) {
+        $result[$v["sendto"]][] = $v; // sendto 根据你想要的相同的需要合并的键值
+}
+```
+
+
+
+<h4 id="numincise">利用PHP 把某个数值 随机分配成几份</h4>
+```
+		 $total = 10; //数值总额 
+         $num = 8; // 分成8份 
+         $min = 0.005; //最小数值 
+         for ($i = 1; $i < $num; $i++) { 
+                $safe_total = ($total - ($num - $i) * $min) / ($num - $i); //随机安全上限 
+                $money = mt_rand($min * 100, $safe_total * 100) / 100; 
+                $total = $total - $money; 
+                echo '第' . $i . '个数值：' . $money ; 
+         } 
+         echo '第' . $num . '个数值：' . $total;// 最后一份数值 
 ```
