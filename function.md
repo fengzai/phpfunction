@@ -4,12 +4,12 @@
 对于在项目中写的程序，可以以后直接拿来用
 ```
 
-[数字转为中文大写](#zhuangdaxie)
-[导出execl表格](#execl)
-[获取本月月份 第一天和最后一天](#fristdayendday)
-[将json串解析成中文](#json-china)
-[php数组根据某键值，把相同键值的合并最终生成一个新的二维数组](#newarray)
-[利用PHP 把某个数值随机分配成几份](#numincise)
+* [数字转为中文大写](#zhuangdaxie)
+* [导出execl表格](#execl)
+* [获取本月月份 第一天和最后一天](#fristdayendday)
+* [将json串解析成中文](#json-china)
+* [php数组根据某键值，把相同键值的合并最终生成一个新的二维数组](#newarray)
+* [利用PHP 把某个数值随机分配成几份](#numincise)
 
 <h4 id="zhuangdaxie">数字转为中文大写</h4>
 ```
