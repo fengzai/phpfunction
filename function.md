@@ -12,6 +12,7 @@
 * [利用PHP 把某个数值随机分配成几份](#numincise)
 
 <h4 id="zhuangdaxie">数字转为中文大写</h4>
+
 ```
 public function get_amount($num){
         $c1 = "零壹贰叁肆伍陆柒捌玖";
@@ -66,9 +67,8 @@ public function get_amount($num){
             return $c;
         }
     }
-    
+    
 ```
-
 
 <h4 id="execl">导出execl表格</h4>
 
