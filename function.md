@@ -101,6 +101,7 @@ foreach(){
 
 
 <h4 id="fristdayendday">获取本月月份第一天和最后一天</h4>
+
 ```
 $date = date('Y-m-d');
 $firstday = date('Y-m-01', strtotime($date));
@@ -110,6 +111,7 @@ $lastday = date('Y-m-d', strtotime("$firstday +1 month -1 day"));
 
 
 <h4 id="json-china">将json串解析成中文</h4>
+
 ```
 $str = preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '\\1'))", $str); 
 
@@ -120,6 +122,7 @@ $str = preg_replace("#\\\u([0-9a-f]+)#ie", "iconv('UCS-2', 'UTF-8', pack('H4', '
 
 
 <h4 id="newarray">php数组根据某键值，把相同键值的合并最终生成一个新的二维数组</h4>
+
 ```
 foreach($sourceArray as $k=>$v) {
         $result[$v["sendto"]][] = $v; // sendto 根据你想要的相同的需要合并的键值
@@ -129,6 +132,7 @@ foreach($sourceArray as $k=>$v) {
 
 
 <h4 id="numincise">利用PHP 把某个数值 随机分配成几份</h4>
+
 ```
 		 $total = 10; //数值总额 
          $num = 8; // 分成8份 
