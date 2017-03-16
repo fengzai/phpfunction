@@ -66,6 +66,7 @@ public function get_amount($num){
             return $c;
         }
     }
+    
 ```
 
 
